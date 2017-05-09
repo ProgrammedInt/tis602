@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03EADBC0F72D79BE209F5D83 /* Pods_taskTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9749D813BE7A5DA4590097DC /* Pods_taskTracker.framework */; };
+		E950BCFB1EC16A28006951E8 /* TaskDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E950BCFA1EC16A28006951E8 /* TaskDetailTableViewController.swift */; };
 		E9AA5DFC1EBED9480001C4AF /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA5DFB1EBED9480001C4AF /* Task.swift */; };
 		E9B6ECAF1EBB03AA00151EAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B6ECAE1EBB03AA00151EAC /* AppDelegate.swift */; };
 		E9B6ECB11EBB03AA00151EAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B6ECB01EBB03AA00151EAC /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 		8AD01C4282DAB334AAA44A91 /* Pods-taskTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-taskTracker/Pods-taskTracker.release.xcconfig"; sourceTree = "<group>"; };
 		9749D813BE7A5DA4590097DC /* Pods_taskTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taskTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0D563373A344EB35B0A753 /* Pods-taskTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-taskTracker/Pods-taskTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		E950BCFA1EC16A28006951E8 /* TaskDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailTableViewController.swift; sourceTree = "<group>"; };
 		E9AA5DFB1EBED9480001C4AF /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		E9B6ECAB1EBB03AA00151EAC /* taskTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taskTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B6ECAE1EBB03AA00151EAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				E9BE1DE81EBC641E005139E3 /* ProfileViewController.swift */,
 				E9BA38331EBDB8EF00885BD9 /* AddTaskViewController.swift */,
 				E9AA5DFB1EBED9480001C4AF /* Task.swift */,
+				E950BCFA1EC16A28006951E8 /* TaskDetailTableViewController.swift */,
 			);
 			path = taskTracker;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				E9B6ECC61EBB097300151EAC /* LoginViewController.swift in Sources */,
 				E9BA38341EBDB8EF00885BD9 /* AddTaskViewController.swift in Sources */,
 				E9B6ECB11EBB03AA00151EAC /* ViewController.swift in Sources */,
+				E950BCFB1EC16A28006951E8 /* TaskDetailTableViewController.swift in Sources */,
 				E9B6ECAF1EBB03AA00151EAC /* AppDelegate.swift in Sources */,
 				E9B6ECB71EBB03AA00151EAC /* taskTracker.xcdatamodeld in Sources */,
 				E9BE1DE91EBC641E005139E3 /* ProfileViewController.swift in Sources */,
