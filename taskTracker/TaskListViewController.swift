@@ -28,7 +28,8 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
     
         override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.myTableView.dataSource = self
+        self.myTableView.delegate = self
         // Do any additional setup after loading the view.
         
         ref = FIRDatabase.database().reference()
@@ -36,15 +37,22 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
             
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return taskList.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "tasklistCell")
 
+        cell.textLabel?.text = self.taskList[indexPath.row].DueDate
+        cell.detailTextLabel!.text = self.taskList[indexPath.row].Suburb!
+        
         // Set Cell Contects
         
         return cell
@@ -57,10 +65,12 @@ class TaskListViewController: UIViewController, UITableViewDelegate, UITableView
             {
                 print(dictionary)
                 
-                let task = TaskInfo()
-                self.taskList.append(task)
                 
-            self.myTableView.reloadData()
+               let task = TaskInfo()
+               task.DueDate = (dictionary["Due Date"] as! String)
+               task.Suburb = (dictionary["Suburb Location"] as! String)
+               self.taskList.append(task)
+               self.myTableView.reloadData()
  
             }
             
