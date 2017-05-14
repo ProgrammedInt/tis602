@@ -26,6 +26,14 @@
 	<string>Main</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Access Photo Library</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To use your location in the Map</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>To use your location in the Map</string>
+	<key>NSLocationUsageDescription</key>
+	<string>To use your location in the Map</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

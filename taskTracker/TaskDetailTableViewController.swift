@@ -45,6 +45,12 @@ class TaskDetailTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let mapVC: MapViewController = segue.destination as! MapViewController
+        
+        mapVC.addressString = taskLocation.text!
+    }
+    
     // MARK: - Table view data source
     /*
     override func numberOfSections(in tableView: UITableView) -> Int {

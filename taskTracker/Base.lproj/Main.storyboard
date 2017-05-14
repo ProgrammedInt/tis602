@@ -35,14 +35,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68C-bD-OYa">
-                                <rect key="frame" x="115" y="341" width="90" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vsm-bQ-R2h"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dct-mD-8cV">
                                 <rect key="frame" x="115" y="430" width="90" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -58,6 +50,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68C-bD-OYa">
+                                <rect key="frame" x="115" y="294" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vsm-bQ-R2h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -357,7 +357,6 @@
                                 <state key="normal" title="Task List"/>
                                 <connections>
                                     <action selector="saveTaskPressed:" destination="S76-LO-2Z9" eventType="touchUpInside" id="QZ8-sE-MNS"/>
-                                    <segue destination="f12-X0-Rs5" kind="show" id="YIP-lL-Jrh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -372,12 +371,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZk-uh-aBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2225.625" y="130.98591549295776"/>
+            <point key="canvasLocation" x="2582" y="-1782"/>
         </scene>
         <!--TaskListViewController-->
         <scene sceneID="7VY-OI-kmg">
             <objects>
-                <viewController title="TaskListViewController" id="f12-X0-Rs5" customClass="TaskListViewController" customModule="taskTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="taskINFO" title="TaskListViewController" id="f12-X0-Rs5" customClass="TaskListViewController" customModule="taskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JOa-ua-Ve4"/>
                         <viewControllerLayoutGuide type="bottom" id="UOE-Ac-VcO"/>
@@ -458,16 +457,22 @@
                                     <segue destination="S76-LO-2Z9" kind="show" id="rMK-kB-VHt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6B-U0-uGi">
+                                <rect key="frame" x="230" y="518" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Map View"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Task List" id="i2l-QK-mFa"/>
                     <connections>
                         <outlet property="myTableView" destination="Qnq-Da-u7X" id="pzm-YB-oDK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R11-Tu-R0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3081" y="123"/>
+            <point key="canvasLocation" x="4275" y="654"/>
         </scene>
         <!--Task Detail Table View Controller-->
         <scene sceneID="rjc-K0-4Lg">
@@ -485,6 +490,11 @@
                                     <barButtonItem key="leftBarButtonItem" title="BACK" id="Z3H-Sz-8L0">
                                         <connections>
                                             <segue destination="f12-X0-Rs5" kind="show" identifier="taskdetailSeguetasklist" id="fO0-rH-KZf"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem key="rightBarButtonItem" title="MAP" id="jeP-Nk-ky3" userLabel="MapView">
+                                        <connections>
+                                            <segue destination="Ze6-RR-lHU" kind="show" id="LtO-N0-7du"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -569,6 +579,8 @@
                             <outlet property="delegate" destination="TNX-D2-BO6" id="Scb-JT-dvG"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="taskDescription" destination="qOg-0z-Aj6" id="dPy-87-Xxg"/>
                         <outlet property="taskDueDate" destination="uCe-cI-zrn" id="Az6-LM-bYv"/>
@@ -578,17 +590,60 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gq0-hd-hJ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3841.875" y="121.47887323943662"/>
+            <point key="canvasLocation" x="6264" y="835"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="BhA-k2-xgI">
+            <objects>
+                <viewController id="Ze6-RR-lHU" customClass="MapViewController" customModule="taskTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gGV-Ut-kiG"/>
+                        <viewControllerLayoutGuide type="bottom" id="LeW-ns-F5R"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZMF-7Y-NQS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o63-sf-pjq">
+                                <rect key="frame" x="42" y="131" width="245" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewO-Pt-suQ">
+                                <rect key="frame" x="141" y="518" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="BACK"/>
+                                <connections>
+                                    <segue destination="f12-X0-Rs5" kind="show" id="Wvt-nf-2en"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KlU-3u-cqf">
+                                <rect key="frame" x="16" y="188" width="288" height="290"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="locationLabel" destination="o63-sf-pjq" id="Ccr-7w-sZQ"/>
+                        <outlet property="taskMap" destination="KlU-3u-cqf" id="xG0-AF-qED"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tEG-el-98g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6990" y="840.84507042253517"/>
         </scene>
     </scenes>
     <resources>
         <image name="User Placeholder" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1q3-x3-A7E"/>
-        <segue reference="fO0-rH-KZf"/>
-        <segue reference="rMK-kB-VHt"/>
         <segue reference="XAn-gB-AwY"/>
-        <segue reference="h40-Zq-czS"/>
+        <segue reference="1q3-x3-A7E"/>
+        <segue reference="Wvt-nf-2en"/>
+        <segue reference="rMK-kB-VHt"/>
+        <segue reference="nsl-wg-5Lc"/>
     </inferredMetricsTieBreakers>
 </document>
