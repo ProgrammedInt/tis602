@@ -7,15 +7,45 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class TaskDetailTableViewController: UITableViewController {
     
     var task : TaskInfo!
+    var geoCoder = CLGeocoder()
     
     @IBOutlet weak var taskNumber: UITextField!
     @IBOutlet weak var taskDueDate: UITextField!
     @IBOutlet weak var taskLocation: UITextField!
     @IBOutlet weak var taskDescription: UITextField!
+    
+    @IBAction func mapDirections(_ sender: UIBarButtonItem) {
+        
+        geoCoder.geocodeAddressString(taskLocation.text!) {
+            placemarks, error in
+            
+            let placemark = placemarks?.first
+            let lat = placemark?.location?.coordinate.latitude
+            let lon = placemark?.location?.coordinate.longitude
+            
+            print("Lat: \(lat), Lon: \(lon)")
+            
+            let regionDistance: CLLocationDistance = 1000;
+            let coordinates = CLLocationCoordinate2DMake(lat!, lon!)
+            let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+            
+            let options = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue (mkCoordinateSpan: regionSpan.span)]
+            
+            let taskplaceMark = MKPlacemark(coordinate: coordinates)
+            let mapTask = MKMapItem(placemark: taskplaceMark)
+            mapTask.name = "My Task"
+            mapTask.openInMaps(launchOptions: options)
+        }
+        
+        
+    }
+    
     
     
     override func viewWillAppear(_ animated: Bool){
@@ -44,13 +74,13 @@ class TaskDetailTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let mapVC: MapViewController = segue.destination as! MapViewController
         
         mapVC.addressString = taskLocation.text!
     }
-    
+    */
     // MARK: - Table view data source
     /*
     override func numberOfSections(in tableView: UITableView) -> Int {

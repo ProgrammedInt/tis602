@@ -494,7 +494,7 @@
                                     </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" title="MAP" id="jeP-Nk-ky3" userLabel="MapView">
                                         <connections>
-                                            <segue destination="Ze6-RR-lHU" kind="show" id="LtO-N0-7du"/>
+                                            <action selector="mapDirections:" destination="TNX-D2-BO6" id="mvl-M0-bz1"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -592,58 +592,15 @@
             </objects>
             <point key="canvasLocation" x="6264" y="835"/>
         </scene>
-        <!--Map View Controller-->
-        <scene sceneID="BhA-k2-xgI">
-            <objects>
-                <viewController id="Ze6-RR-lHU" customClass="MapViewController" customModule="taskTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gGV-Ut-kiG"/>
-                        <viewControllerLayoutGuide type="bottom" id="LeW-ns-F5R"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZMF-7Y-NQS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o63-sf-pjq">
-                                <rect key="frame" x="42" y="131" width="245" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewO-Pt-suQ">
-                                <rect key="frame" x="141" y="518" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="BACK"/>
-                                <connections>
-                                    <segue destination="f12-X0-Rs5" kind="show" id="Wvt-nf-2en"/>
-                                </connections>
-                            </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KlU-3u-cqf">
-                                <rect key="frame" x="16" y="188" width="288" height="290"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="locationLabel" destination="o63-sf-pjq" id="Ccr-7w-sZQ"/>
-                        <outlet property="taskMap" destination="KlU-3u-cqf" id="xG0-AF-qED"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tEG-el-98g" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6990" y="840.84507042253517"/>
-        </scene>
     </scenes>
     <resources>
         <image name="User Placeholder" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XAn-gB-AwY"/>
-        <segue reference="1q3-x3-A7E"/>
-        <segue reference="Wvt-nf-2en"/>
-        <segue reference="rMK-kB-VHt"/>
         <segue reference="nsl-wg-5Lc"/>
+        <segue reference="1q3-x3-A7E"/>
+        <segue reference="fO0-rH-KZf"/>
+        <segue reference="rMK-kB-VHt"/>
+        <segue reference="XAn-gB-AwY"/>
     </inferredMetricsTieBreakers>
 </document>

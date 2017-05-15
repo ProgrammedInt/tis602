@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		03EADBC0F72D79BE209F5D83 /* Pods_taskTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9749D813BE7A5DA4590097DC /* Pods_taskTracker.framework */; };
-		E949A2911EC6BF6300451EC3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E949A2901EC6BF6300451EC3 /* MapViewController.swift */; };
 		E950BCFB1EC16A28006951E8 /* TaskDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E950BCFA1EC16A28006951E8 /* TaskDetailTableViewController.swift */; };
 		E950BCFD1EC187C0006951E8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E950BCFC1EC187C0006951E8 /* MapKit.framework */; };
 		E9AA5DFC1EBED9480001C4AF /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA5DFB1EBED9480001C4AF /* Task.swift */; };
@@ -30,7 +29,6 @@
 		8AD01C4282DAB334AAA44A91 /* Pods-taskTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-taskTracker/Pods-taskTracker.release.xcconfig"; sourceTree = "<group>"; };
 		9749D813BE7A5DA4590097DC /* Pods_taskTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taskTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0D563373A344EB35B0A753 /* Pods-taskTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-taskTracker/Pods-taskTracker.debug.xcconfig"; sourceTree = "<group>"; };
-		E949A2901EC6BF6300451EC3 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E950BCFA1EC16A28006951E8 /* TaskDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailTableViewController.swift; sourceTree = "<group>"; };
 		E950BCFC1EC187C0006951E8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E9AA5DFB1EBED9480001C4AF /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 				E9B6ECC91EBB15E800151EAC /* TaskListViewController.swift */,
 				E950BCFA1EC16A28006951E8 /* TaskDetailTableViewController.swift */,
 				E9AA5DFB1EBED9480001C4AF /* Task.swift */,
-				E949A2901EC6BF6300451EC3 /* MapViewController.swift */,
 			);
 			path = taskTracker;
 			sourceTree = "<group>";
@@ -252,7 +249,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E949A2911EC6BF6300451EC3 /* MapViewController.swift in Sources */,
 				E9B6ECC61EBB097300151EAC /* LoginViewController.swift in Sources */,
 				E9BA38341EBDB8EF00885BD9 /* AddTaskViewController.swift in Sources */,
 				E9B6ECB11EBB03AA00151EAC /* ViewController.swift in Sources */,

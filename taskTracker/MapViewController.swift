@@ -26,6 +26,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         locationLabel.text = addressString
         self.taskMap.delegate = self
         
@@ -34,7 +35,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Do any additional setup after loading the view.
         
         func showAddress(f:CNPostalAddress){
-            let addressString: String = "\(f.city)"
+            let addressString: String = "\(f.subLocality)"
             
             let geocoder: CLGeocoder = CLGeocoder()
             geocoder.geocodeAddressString(addressString, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
@@ -48,6 +49,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 let mapPlacemark: MKPlacemark = MKPlacemark(placemark: friendPlacemark)
                 self.taskMap.addAnnotation(mapPlacemark)
                 
+                print(mapPlacemark)
+                print(MKCoordinateSpan.self)
                 
                 } as! CLGeocodeCompletionHandler)
 
