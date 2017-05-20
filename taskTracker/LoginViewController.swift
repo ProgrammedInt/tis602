@@ -32,6 +32,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             {
                 if let myError = error?.localizedDescription
                 {
+                    self.userNotFoundAlert()
+               
                     self.performSegue(withIdentifier: "loginSeguesignup", sender: self)
                     print(myError)// Prints out error if no user found
                 }
@@ -104,4 +106,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.resignFirstResponder()
         return (true)
     }
-}
+    
+    func userNotFoundAlert (){
+        let alertController = UIAlertController(title: "User Not Found", message: "Please Sign-Up", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "OK", style: .default)
+            alertController.addAction(yesAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+        
+    }
+    
+
