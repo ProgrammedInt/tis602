@@ -20,9 +20,10 @@ class AddTaskViewController: UIViewController {
     
     
     
-    
+    // Initiating Firbase Storage and Database
     var userStorage: FIRStorageReference!
     var databaseRef: FIRDatabaseReference!
+    // Adviseing Firebase to use current user information
     var user = FIRAuth.auth()?.currentUser
 
     override func viewDidLoad() {
@@ -30,7 +31,7 @@ class AddTaskViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        let storage = FIRStorage.storage().reference(forURL: "gs://tasktracker-98cfd.appspot.com")
+        //let storage = FIRStorage.storage().reference(forURL: "gs://tasktracker-98cfd.appspot.com")
         
         databaseRef = FIRDatabase.database().reference()
         userStorage = FIRStorage.storage().reference()
@@ -41,24 +42,24 @@ class AddTaskViewController: UIViewController {
     }
     
     func post(){
-    
+        // Setting up the user entered text in the fields to be transferred to FireBase
         let post : [String : AnyObject] =
         ["Task Number" : self.taskNumberField.text! as AnyObject,
         "Suburb Location" : self.suburbLocationField.text! as AnyObject,
             "Due Date" : self.duedateField.text! as AnyObject,
             "Task Description" : self.taskDescription.text! as AnyObject]
-        
+        // Advising Firebase where to the store the new task details that have been created by the user
         let databaseRef = FIRDatabase.database().reference()
     databaseRef.child("users").child((user?.uid)!).child("Task").childByAutoId().setValue(post)
      
     }
-
+    // loging out of the app function
     @IBAction func logoutAction(_ sender: UIButton) {
         
         if FIRAuth.auth()?.currentUser != nil {
             
             do {
-                
+                // signing out of Firebase
                 try FIRAuth.auth()?.signOut()
                 self.performSegue(withIdentifier: "taskSeguelogin", sender: self)
                 

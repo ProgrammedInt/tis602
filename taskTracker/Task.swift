@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// Establishes a new class called TaskInfo 
 class TaskInfo: NSObject {
     
     var TaskNumber: String?

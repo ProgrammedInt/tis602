@@ -23,11 +23,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     
     
-    
+    // initiating the Firebase DataBase
     var databaseRef: FIRDatabaseReference!
     var refHandle: UInt!
  
-    
+     // initiating the Firebase Storage
     var storageRef: FIRStorage! {
         return FIRStorage.storage()
     }
@@ -43,6 +43,8 @@ class ProfileViewController: UIViewController {
             print(dataDict)
         })
         */
+        
+        // Telling system where to find user information in Firebase and to take a snapshot of this information and display it in the appropriate text fields in the app.
         let userID = FIRAuth.auth()?.currentUser?.uid
         databaseRef.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
@@ -50,6 +52,8 @@ class ProfileViewController: UIViewController {
             let firstName = value?["First Name"] as? String
             let surName = value?["Surname"] as? String
             let phoneNo = value?["Phone No"] as? String
+            
+            // Instructing the snapshot of information to be displayed in the appropriate textfields
             
             self.firstnameTextField.text = firstName
             self.surnameTextField.text = surName

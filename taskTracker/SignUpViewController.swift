@@ -32,14 +32,14 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Do any additional setup after loading the view.
         
         
-            
+        // tells system URL in firebase for storage of data
         let storage = FIRStorage.storage().reference(forURL: "gs://tasktracker-98cfd.appspot.com")
-            
+        //Access storage/data base in Firebase and creates a child called Users and puts all login details under this child
         databaseRef = FIRDatabase.database().reference()
         userStorage = storage.child("Users")
     }
 
-    
+    // Selecting a image the user can identify with
     @IBAction func selectimagePressed(_ sender: UIButton) {
         
         let imagePicker = UIImagePickerController()
@@ -64,9 +64,9 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // Guard Statement checks if there are entries in req fields befor proceeding
         guard firstnameTextField.text != "", surnameTextField.text != "", phoneTextField.text != "", emailTextField.text != "", passwordTextField.text != "", confpasswordTextField.text != "" else {return}
-        
+        // ensures password has been correctly entered twice
         if passwordTextField.text == confpasswordTextField.text {
-            
+            //Granting system permission to create the user in Firebase
             FIRAuth.auth()?.createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
                 
                 if let error = error {
@@ -74,7 +74,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                 }
                 
                 if let user = user {
-                    
+                    // User has the ability to adjust/over write their profile details
                     let changeRequest = FIRAuth.auth()!.currentUser!.profileChangeRequest()
                     changeRequest.displayName = self.firstnameTextField.text!
                     changeRequest.commitChanges(completion: nil)
@@ -95,7 +95,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                             }
                             
                             if let url = url {
-                                
+                                // Creating a new tier of child to be placed into Firebase.  These children are under each user
                                 let userInfo: [String: Any] = ["uid" : user.uid,
                                                             
                                             "First Name" : self.firstnameTextField.text!,
@@ -103,7 +103,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                                             "Phone No" : self.phoneTextField.text!,
                                             "Email" : self.emailTextField.text!,
                                             "urlToImage" : url.absoluteString]
-                                
+                                // telling firbase to save above details under each users unique UID
                                 self.databaseRef.child("users").child(user.uid).setValue(userInfo)
                                 
                                 self.performSegue(withIdentifier: "signupSegueprofile", sender: self)

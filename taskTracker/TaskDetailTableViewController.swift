@@ -21,22 +21,24 @@ class TaskDetailTableViewController: UITableViewController {
     @IBOutlet weak var taskDescription: UITextField!
     
     @IBAction func mapDirections(_ sender: UIBarButtonItem) {
-        
+        // Sets up geocoder to look at the location content in the task location textfield
+        // geocoder then converts the Location information a latitude and longitude coordinate
         geoCoder.geocodeAddressString(taskLocation.text!) {
             placemarks, error in
             
             let placemark = placemarks?.first
             let lat = placemark?.location?.coordinate.latitude
             let lon = placemark?.location?.coordinate.longitude
+            // instruct for the generated latitude and longitude to be printed in the output console (This information will be further used in later releases of the app
+            print("Lat: \(lat!), Lon: \(lon!)")
             
-            print("Lat: \(lat), Lon: \(lon)")
             
-            let regionDistance: CLLocationDistance = 1000;
-            let coordinates = CLLocationCoordinate2DMake(lat!, lon!)
+            let regionDistance: CLLocationDistance = 1000;// sets the map dispay span
+            let coordinates = CLLocationCoordinate2DMake(lat!, lon!) //Establishes the Lat and lon as coordinates
             let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
             
             let options = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue (mkCoordinateSpan: regionSpan.span)]
-            
+            // instructs the map to open apple maps and place the coordinates on the map in order to provide directions from the users current location
             let taskplaceMark = MKPlacemark(coordinate: coordinates)
             let mapTask = MKMapItem(placemark: taskplaceMark)
             mapTask.name = "My Task"
@@ -47,14 +49,14 @@ class TaskDetailTableViewController: UITableViewController {
     }
     
     
-    
+    // places details information regarding the selected task into the appropriate textfields
     override func viewWillAppear(_ animated: Bool){
         
         if task != nil{
-            taskNumber.text = "Task Number: \(String(describing: task!.TaskNumber))"
-            taskDueDate.text = task!.DueDate
-            taskLocation.text = task!.Suburb
-            taskDescription.text = task!.TDescript
+            taskNumber.text = "Task Number: \(String(describing: task!.TaskNumber!))"
+            taskDueDate.text = "Due Date: \(String(describing: task!.DueDate!))"
+            taskLocation.text = "Location: \(String(describing: task!.Suburb!))"
+            taskDescription.text = "Task Description: \(String(describing: task!.TDescript!))"
         }
     }
 

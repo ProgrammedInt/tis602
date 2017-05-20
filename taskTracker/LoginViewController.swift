@@ -21,17 +21,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         // Checks to see if there is an entry in either the username or password fields.
         if emailTextField.text != "" && passwordTextField.text != ""
-        {
+        {   // tells system where to check in firebase for user details
             FIRAuth.auth()?.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
                 
             if user != nil //Check if there is a user in firbase
-            {
+            {   // if user was not nil (in the database) segues to userprofile page
                 self.performSegue(withIdentifier: "loginSegueprofile", sender: self)
                 }
                 else
             {
                 if let myError = error?.localizedDescription
-                {
+                {   // if user not found an alert message will prompt the user to create a new sign in
                     self.userNotFoundAlert()
                
                     self.performSegue(withIdentifier: "loginSeguesignup", sender: self)
@@ -48,7 +48,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
         else
-        {
+        {   // tells system where to check in firebase for user details
             FIRAuth.auth()?.createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
                 
                 if user != nil // Check if user has been created successfully (not nil)
@@ -75,7 +75,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // setting the Password and Text Field delegates to user operated
         
         self.passwordTextField.delegate = self
         self.emailTextField.delegate = self
@@ -106,7 +106,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.resignFirstResponder()
         return (true)
     }
-    
+    // function for the alert message if user not found in firebase database
     func userNotFoundAlert (){
         let alertController = UIAlertController(title: "User Not Found", message: "Please Sign-Up", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "OK", style: .default)
